@@ -3,14 +3,30 @@ const inquirer = require("inquirer");
 const promptUser = () => {
   return inquirer.prompt([
     {
-      type: "input",
-      name: "name",
-      message: "What is your name?",
+      type: 'input',
+      name: 'name',
+      message: 'What is your name? (Required)',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter your name!');
+          return false;
+        }
+      }
     },
     {
       type: "input",
       name: "github",
       message: "Enter your GitHub Username",
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter your Github username!');
+          return false;
+        }
+      }
     },
     {
       type: "input",
@@ -38,11 +54,27 @@ Add a New Project
       type: "input",
       name: "name",
       message: "What is the name of your project?",
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter your project name!');
+          return false;
+        }
+      }
     },
     {
       type: "input",
       name: "description",
       message: "Provide a description of the project (Required)",
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter a description for your project!');
+          return false;
+        }
+      }
     },
     {
       type: "checkbox",
@@ -62,6 +94,14 @@ Add a New Project
       type: "input",
       name: "link",
       message: "Enter the GitHub link to your project. (Required)",
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter your project Github link!');
+          return false;
+        }
+      }
     },
     {
       type: "confirm",
